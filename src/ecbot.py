@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 # coding=utf-8
 
+from settings import tgkey
+
 
 def main():
     try:
         # Show message...
-        print('TEST')
+        print(tgkey)
 
     except:
         # Exception detected...
