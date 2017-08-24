@@ -14,6 +14,10 @@ def runbot(key):
     def handlestart(message):
         bot.send_message(message.chat.id, 'Приветствую вас!')
 
+    @bot.message_handler(commands=['steam'])
+    def handlesteam(message):
+        bot.send_message(message.chat.id, 'Now please send me a link to Steam profile or SteamID.')
+
     @bot.message_handler(func=lambda message: True, content_types=['text'])
     def handleother(message):
         bot.send_message(message.chat.id, message.text)
