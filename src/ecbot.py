@@ -16,7 +16,12 @@ def runbot(key):
 
     @bot.message_handler(commands=['steam'])
     def handlesteam(message):
-        bot.send_message(message.chat.id, 'Now please send me a link to Steam profile or SteamID.')
+        msg = bot.reply_to(message, 'Now please send me a link to Steam profile or SteamID.')
+        bot.register_next_step_handler(msg, checksteam)
+
+    def checksteam(message):
+        print('Checking user via API...')
+        bot.reply_to(message, 'Result: Done.')
 
     @bot.message_handler(func=lambda message: True, content_types=['text'])
     def handleother(message):
