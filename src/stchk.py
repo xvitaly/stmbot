@@ -6,7 +6,7 @@ from urllib.request import urlopen
 
 
 class SteamChecker:
-    def fetchxml(self):
+    def _fetchxml(self):
         apiuri = 'https://check.team-fortress.su/api.php?action=check&token=%s&id=%s' % (self._Token, self._ID)
         with urlopen(apiuri) as xmlres:
             return xmlres.read()
