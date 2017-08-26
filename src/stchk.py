@@ -12,6 +12,10 @@ class SteamChecker:
             return xmlres.read()
 
     def __init__(self, tid, token):
+        # Setting token and unique identifier to pseudo-private properties...
         self._ID = tid
         self._Token = token
+
+        # Fetching XML from API...
+        rxml = self._fetchxml()
 
