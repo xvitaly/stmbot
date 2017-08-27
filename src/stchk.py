@@ -6,18 +6,18 @@ from xml.dom import minidom
 
 
 class SteamChecker:
-    def _fetchxml(self):
-        apiuri = 'https://check.team-fortress.su/api.php?action=check&token=%s&id=%s' % (self._Token, self._ID)
+    def __fetchxml(self):
+        apiuri = 'https://check.team-fortress.su/api.php?action=check&token=%s&id=%s' % (self.__Token, self.__ID)
         with urlopen(apiuri) as xmlres:
             return xmlres.read()
 
     def __init__(self, tid, token):
         # Setting token and unique identifier to pseudo-private properties...
-        self._ID = tid
-        self._Token = token
+        self.__ID = tid
+        self.__Token = token
 
         # Fetching XML from API...
-        rxml = self._fetchxml()
+        rxml = self.__fetchxml()
 
         # Parsing received XML...
         xmlp = minidom.parse(rxml)
