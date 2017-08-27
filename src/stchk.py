@@ -8,7 +8,7 @@ from xml.dom import minidom
 class SteamChecker:
     def __fetchxml(self):
         apiuri = 'https://check.team-fortress.su/api.php?action=check&token=%s&id=%s' % (self.__Token, self.__ID)
-        req = Request( apiuri, data=None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 5.1; rv:10.0.7) Gecko/20100101 Firefox/10.0.7'})
+        req = Request(apiuri, data=None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 5.1; rv:10.0.7) Gecko/20100101 Firefox/10.0.7'})
         with urlopen(req) as xmlres:
             return xmlres.read().decode('utf-8')
 
@@ -21,7 +21,7 @@ class SteamChecker:
         rxml = self.__fetchxml()
 
         # Parsing received XML...
-        xmlp = minidom.parse(rxml)
+        xmlp = minidom.parseString(rxml)
         for up in xmlp.getElementsByTagName('userprofile'):
             self.APIStatus = up.getElementsByTagName("qstatus")[0].firstChild.data
             self.SteamID32 = up.getElementsByTagName("steamID")[0].firstChild.data
