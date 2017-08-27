@@ -1,15 +1,17 @@
 #!/usr/bin/python3
 # coding=utf-8
 
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 from xml.dom import minidom
 
 
 class SteamChecker:
     def __fetchxml(self):
         apiuri = 'https://check.team-fortress.su/api.php?action=check&token=%s&id=%s' % (self.__Token, self.__ID)
-        with urlopen(apiuri) as xmlres:
-            return xmlres.read()
+        print(apiuri)
+        req = Request( apiuri, data=None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 5.1; rv:10.0.7) Gecko/20100101 Firefox/10.0.7'})
+        with urlopen(req) as xmlres:
+            return xmlres.read().decode('utf-8')
 
     def __init__(self, tid, token):
         # Setting token and unique identifier to pseudo-private properties...
