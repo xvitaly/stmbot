@@ -3,6 +3,7 @@
 
 from telebot import TeleBot
 from settings import tgkey
+from stchk import SteamChecker
 
 
 def runbot(key):
