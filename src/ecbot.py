@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 # coding=utf-8
 
-import telebot
+from telebot import TeleBot
 from settings import tgkey
 
 
 def runbot(key):
     # Initialize bot...
-    bot = telebot.TeleBot(key)
+    bot = TeleBot(key)
 
     # Initialize command handlers...
     @bot.message_handler(commands=['start', 'help'])
