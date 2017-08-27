@@ -30,11 +30,16 @@ class SteamChecker:
         self.SteamIDv3 = xmlp.getElementsByTagName("steamIDv3")[0].firstChild.data
         self.Nickname = xmlp.getElementsByTagName("nickname")[0].firstChild.data
         self.Avatar = xmlp.getElementsByTagName("avatar")[0].firstChild.data
-        self.Description = xmlp.getElementsByTagName("customdescr")[0].firstChild.data
         self.SiteStatus = xmlp.getElementsByTagName("sitestatus")[0].firstChild.data
         self.VACStatus = xmlp.getElementsByTagName("isbanned")[0].firstChild.data
         self.F2PStatus = xmlp.getElementsByTagName("isf2p")[0].firstChild.data
         self.TradeStatus = xmlp.getElementsByTagName("istrbanned")[0].firstChild.data
         self.Premium = xmlp.getElementsByTagName("ispremium")[0].firstChild.data
         self.Permalink = xmlp.getElementsByTagName("permalink")[0].firstChild.data
+
+        # Fetching custom description...
+        try:
+            self.Description = xmlp.getElementsByTagName("customdescr")[0].firstChild.data
+        except:
+            self.Description = ''
 
