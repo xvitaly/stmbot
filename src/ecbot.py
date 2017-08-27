@@ -27,13 +27,14 @@ def runbot(key):
     # Initialize additional bot routines...
     def checksteam(message):
         try:
-            chk = SteamChecker(message, tfkey)
+            chk = SteamChecker(message.text, tfkey)
             bot.reply_to(message, 'Result nickname: %s.' % chk.Nickname)
         except:
             bot.reply_to(message, 'An error occured while fetching API!')
 
     # Run bot forever...
     bot.polling(none_stop=True)
+
 
 def main():
     try:
