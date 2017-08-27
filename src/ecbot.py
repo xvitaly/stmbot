@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from telebot import TeleBot
-from settings import tgkey
+from settings import tgkey, tfkey
 from stchk import SteamChecker
 
 
