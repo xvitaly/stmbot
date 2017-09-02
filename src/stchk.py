@@ -8,7 +8,7 @@ from xml.dom import minidom
 class SteamChecker:
     def __fetchxml(self):
         apiuri = 'https://check.team-fortress.su/api.php?action=check&token=%s&id=%s' % (self.__Token, self.__ID)
-        req = Request(apiuri, data=None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 5.1; rv:10.0.7) Gecko/20100101 Firefox/10.0.7'})
+        req = Request(apiuri, data=None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; rv:52.0.0) Gecko/20100101 Firefox/52.0.0'})
         with urlopen(req) as xmlres:
             return xmlres.read().decode('utf-8')
 
