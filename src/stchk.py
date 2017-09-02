@@ -23,8 +23,11 @@ class SteamChecker:
         # Parsing received XML...
         xmlp = minidom.parseString(rxml)
 
+        # Checking API result...
+        if xmlp.getElementsByTagName("qstatus")[0].firstChild.data != 'OK':
+            raise Exception('Incorrect API return code')
+
         # Setting public properties...
-        self.APIStatus = xmlp.getElementsByTagName("qstatus")[0].firstChild.data
         self.SteamID32 = xmlp.getElementsByTagName("steamID")[0].firstChild.data
         self.SteamID64 = xmlp.getElementsByTagName("steamID64")[0].firstChild.data
         self.SteamIDv3 = xmlp.getElementsByTagName("steamIDv3")[0].firstChild.data
