@@ -28,7 +28,8 @@ def runbot(key):
     def checksteam(message):
         try:
             chk = SteamChecker(message.text, tfkey)
-            bot.reply_to(message, 'Result nickname: %s.' % chk.Nickname)
+            msg = 'Nickname: {}\nSteamID: {}\nCheck results: {}'.format(chk.Nickname, chk.SteamID32, chk.SiteStatus)
+            bot.reply_to(message, msg)
         except:
             bot.reply_to(message, 'An error occured while fetching API!')
 
