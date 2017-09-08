@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # coding=utf-8
 
-from telebot import TeleBot
+from telebot import TeleBot, types
 from settings import tgkey, tfkey
 from stchk import SteamChecker
 
@@ -13,7 +13,15 @@ def runbot(key):
     # Initialize command handlers...
     @bot.message_handler(commands=['start', 'help'])
     def handlestart(message):
-        bot.send_message(message.chat.id, 'Приветствую вас!')
+        # Creating bot keyboard...
+        kbd = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True, selective=False, row_width=1)
+        item1 = types.KeyboardButton('/help')
+        item2 = types.KeyboardButton('/steam')
+        item3 = types.KeyboardButton('/id')
+        kbd.add(item1, item2, item3)
+
+        # Sending message...
+        bot.send_message(message.chat.id, 'Приветствую вас!', reply_markup=kbd)
 
     @bot.message_handler(commands=['steam'])
     def handlesteam(message):
