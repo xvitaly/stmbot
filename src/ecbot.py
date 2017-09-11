@@ -28,6 +28,11 @@ def runbot(key):
         msg = bot.reply_to(message, 'Now please send me a link to Steam profile or SteamID.')
         bot.register_next_step_handler(msg, checksteam)
 
+    @bot.message_handler(commands=['id'])
+    def handle_id(message):
+        user = bot.get_me()
+        bot.reply_to(message, 'Your ID is %s.' % user.id)
+
     # Initialize additional bot routines...
     def checksteam(message):
         try:
