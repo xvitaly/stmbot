@@ -37,7 +37,7 @@ def runbot(key):
     def check_steam(message):
         try:
             chk = SteamChecker(message.text, tfkey)
-            msg = 'Никнейм: *{}*\nSteamID: *{}*\nCheck results: {}'.format(chk.Nickname, chk.SteamID32, chk.SiteStatus)
+            msg = 'Никнейм: *{}*\nSteamID (стар. формат): *{}*\nSteamIDv3: *{}*\nVAC-статус: *{}*\nСтатус торговли: *{}*\nБесплатный аккаунт: *{}*\nСсылка на профиль: [{}]({})'.format(chk.Nickname, chk.SteamID32, chk.SteamIDv3, chk.VACStatus, chk.TradeStatus, chk.F2PStatus, chk.SteamID64, chk.Permalink)
             bot.send_message(message.chat.id, msg, reply_to_message_id=message.message_id, parse_mode='Markdown')
         except:
             bot.reply_to(message, 'An error occured while fetching API!')
