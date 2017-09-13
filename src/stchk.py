@@ -35,6 +35,13 @@ class SteamChecker:
         }
         return stv[self.VACStatus]
 
+    def get_f2pstatus(self):
+        stv = {
+            '0': 'нет',
+            '1': 'да',
+        }
+        return stv[self.F2PStatus]
+
     def __init__(self, tid, token):
         # Setting token and unique identifier to pseudo-private properties...
         self.__ID = tid
