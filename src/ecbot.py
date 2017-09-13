@@ -39,7 +39,7 @@ def runbot(key):
             chk = SteamChecker(message.text, tfkey)
             msg = 'Никнейм: *{}.*\nSteamID32: *{}*.\nSteamIDv3: *{}*.\nVAC-статус: *{}*.\nИгровые баны: ' \
                   '*{}*.\nСтатус торговли: *{}.*\nБесплатный аккаунт: *{}*.\nСсылка на профиль: [{}]({}).\n\nПроверка ' \
-                  'на сайте тф.су: {}.\nПроверка на SteamRep: {}.'.format(chk.Nickname, chk.SteamID32, chk.SteamIDv3, chk.get_vacstatus(),
+                  'на сайте тф.су: *{}*.\nПроверка на SteamRep: {}.'.format(chk.Nickname, chk.SteamID32, chk.SteamIDv3, chk.get_vacstatus(),
                                                chk.get_gamebanstatus(), chk.get_tradestatus(), chk.get_f2pstatus(),
                                                chk.SteamID64, chk.Permalink, chk.get_sitestatus(), 'не выполнялась')
             bot.send_message(message.chat.id, msg, reply_to_message_id=message.message_id, parse_mode='Markdown')
