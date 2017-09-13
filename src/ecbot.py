@@ -25,8 +25,8 @@ def runbot(key):
 
     @bot.message_handler(commands=['id'])
     def handle_id(message):
-        bot.send_message(message.chat.id, 'Ваш уникальный идентификатор пользователя в Telegram: %s.' % bot.get_me().id,
-                         reply_to_message_id=message.message_id, parse_mode='Markdown')
+        bot.send_message(message.chat.id, 'Ваш идентификатор пользователя в Telegram: *%s*.' % bot.get_me().id,
+                         reply_to_message_id=message.message_id, parse_mode='Markdown', reply_markup=get_mainkbd())
 
     # Initialize additional bot routines...
     def get_mainkbd():
@@ -35,7 +35,8 @@ def runbot(key):
         item1 = types.KeyboardButton('/help')
         item2 = types.KeyboardButton('/steam')
         item3 = types.KeyboardButton('/id')
-        return kbd.add(item1, item2, item3)
+        kbd.add(item1, item2, item3)
+        return kbd
 
     def check_steam(message):
         try:
@@ -45,7 +46,7 @@ def runbot(key):
                   'на сайте тф.су: *{}*.\nПроверка на SteamRep: {}.'.format(chk.Nickname, chk.SteamID32, chk.SteamIDv3, chk.get_vacstatus(),
                                                chk.get_gamebanstatus(), chk.get_tradestatus(), chk.get_f2pstatus(),
                                                chk.SteamID64, chk.Permalink, chk.get_sitestatus(), 'не выполнялась')
-            bot.send_message(message.chat.id, msg, reply_to_message_id=message.message_id, parse_mode='Markdown')
+            bot.send_message(message.chat.id, msg, reply_to_message_id=message.message_id, parse_mode='Markdown', reply_markup=get_mainkbd())
         except:
             bot.reply_to(message, 'An error occured while fetching API!')
 
