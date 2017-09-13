@@ -50,6 +50,9 @@ class SteamChecker:
         }
         return stv[self.TradeStatus]
 
+    def get_gamebanstatus(self):
+        return 'нет' if self.GameBans == '0' else 'есть (%s)' % self.GameBans
+
     def __init__(self, tid, token):
         # Setting token and unique identifier to pseudo-private properties...
         self.__ID = tid
