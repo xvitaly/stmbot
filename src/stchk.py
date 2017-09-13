@@ -42,6 +42,14 @@ class SteamChecker:
         }
         return stv[self.F2PStatus]
 
+    def get_tradestatus(self):
+        stv = {
+            '0': 'нет ограничений',
+            '1': 'заблокирована',
+            '2': 'испытательный срок'
+        }
+        return stv[self.TradeStatus]
+
     def __init__(self, tid, token):
         # Setting token and unique identifier to pseudo-private properties...
         self.__ID = tid
