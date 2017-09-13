@@ -13,27 +13,30 @@ def runbot(key):
     # Initialize command handlers...
     @bot.message_handler(commands=['start', 'help'])
     def handle_start(message):
+        # Sending message...
+        bot.send_message(message.chat.id, 'Я - робот, созданный EasyCoding Team. Для продолжения работы со мной '
+                                          'сначала выберите один из пунктов меню.', reply_markup=get_mainkbd())
+
+    @bot.message_handler(commands=['steam'])
+    def handle_steam(message):
+        msg = bot.reply_to(message, 'Хорошо. Теперь отправьте мне ссылку на профиль Steam пользователя, которого '
+                                    'желаете проверить, либо SteamID в любом формате записи.')
+        bot.register_next_step_handler(msg, check_steam)
+
+    @bot.message_handler(commands=['id'])
+    def handle_id(message):
+        bot.send_message(message.chat.id, 'Ваш уникальный идентификатор пользователя в Telegram: %s.' % bot.get_me().id,
+                         reply_to_message_id=message.message_id, parse_mode='Markdown')
+
+    # Initialize additional bot routines...
+    def get_mainkbd():
         # Creating bot keyboard...
         kbd = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True, selective=False, row_width=1)
         item1 = types.KeyboardButton('/help')
         item2 = types.KeyboardButton('/steam')
         item3 = types.KeyboardButton('/id')
-        kbd.add(item1, item2, item3)
+        return kbd.add(item1, item2, item3)
 
-        # Sending message...
-        bot.send_message(message.chat.id, 'Приветствую вас!', reply_markup=kbd)
-
-    @bot.message_handler(commands=['steam'])
-    def handle_steam(message):
-        msg = bot.reply_to(message, 'Now please send me a link to Steam profile or SteamID.')
-        bot.register_next_step_handler(msg, check_steam)
-
-    @bot.message_handler(commands=['id'])
-    def handle_id(message):
-        user = bot.get_me()
-        bot.reply_to(message, 'Your ID is %s.' % user.id)
-
-    # Initialize additional bot routines...
     def check_steam(message):
         try:
             chk = SteamChecker(message.text, tfkey)
