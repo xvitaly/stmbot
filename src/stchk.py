@@ -31,14 +31,14 @@ class SteamChecker:
     def get_vacstatus(self):
         stv = {
             '0': 'чист',
-            '1': 'забанен',
+            '1': 'забанен'
         }
         return stv[self.VACStatus]
 
     def get_f2pstatus(self):
         stv = {
             '0': 'нет',
-            '1': 'да',
+            '1': 'да'
         }
         return stv[self.F2PStatus]
 
