@@ -28,6 +28,13 @@ class SteamChecker:
         # Return result using dictionary...
         return stv[self.SiteStatus]
 
+    def get_vacstatus(self):
+        stv = {
+            '0': 'чист',
+            '1': 'забанен',
+        }
+        return stv[self.VACStatus]
+
     def __init__(self, tid, token):
         # Setting token and unique identifier to pseudo-private properties...
         self.__ID = tid
