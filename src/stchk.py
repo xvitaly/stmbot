@@ -12,6 +12,22 @@ class SteamChecker:
         with urlopen(req) as xmlres:
             return xmlres.read().decode('utf-8')
 
+    def get_sitestatus(self):
+        # Set dictionary with API return codes...
+        stv = {
+            '1': 'гарант',
+            '2': 'в белом списке',
+            '3': 'в чёрном списке',
+            '4': 'нет в базе',
+            '5': 'в чёрном списке аукциона',
+            '6': 'сотрудник сайта',
+            '7': 'донатер',
+            '8': 'ненадёжный'
+        }
+
+        # Return result using dictionary...
+        return stv[self.SiteStatus]
+
     def __init__(self, tid, token):
         # Setting token and unique identifier to pseudo-private properties...
         self.__ID = tid
