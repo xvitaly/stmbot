@@ -37,7 +37,7 @@ def runbot(key):
     # Initialize additional bot routines...
     def get_mainkbd():
         # Creating bot keyboard...
-        kbd = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True, selective=False, row_width=1)
+        kbd = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True, selective=False, row_width=2)
         kbd.add(types.KeyboardButton('/help'), types.KeyboardButton('/steam'), types.KeyboardButton('/id'),
                 types.KeyboardButton('/version'))
         return kbd
