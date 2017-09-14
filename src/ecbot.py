@@ -38,10 +38,8 @@ def runbot(key):
     def get_mainkbd():
         # Creating bot keyboard...
         kbd = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True, selective=False, row_width=1)
-        item1 = types.KeyboardButton('/help')
-        item2 = types.KeyboardButton('/steam')
-        item3 = types.KeyboardButton('/id')
-        kbd.add(item1, item2, item3)
+        kbd.add(types.KeyboardButton('/help'), types.KeyboardButton('/steam'), types.KeyboardButton('/id'),
+                types.KeyboardButton('/version'))
         return kbd
 
     def check_steam(message):
