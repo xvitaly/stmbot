@@ -41,14 +41,17 @@ def runbot(key):
     def check_steam(message):
         try:
             chk = SteamChecker(message.text, tfkey)
-            msg = 'Никнейм: *{}.*\nSteamID32: *{}*.\nSteamIDv3: *{}*.\nVAC-статус: *{}*.\nИгровые баны: ' \
-                  '*{}*.\nСтатус торговли: *{}.*\nБесплатный аккаунт: *{}*.\nСсылка на профиль: [{}]({}).\n\nПроверка ' \
-                  'на сайте тф.су: *{}*.\nПроверка на SteamRep: *{}*.'.format(chk.Nickname, chk.SteamID32, chk.SteamIDv3, chk.get_vacstatus(),
-                                               chk.get_gamebanstatus(), chk.get_tradestatus(), chk.get_f2pstatus(),
-                                               chk.SteamID64, chk.Permalink, chk.get_sitestatus(), chk.SRStatus)
-            bot.send_message(message.chat.id, msg, reply_to_message_id=message.message_id, parse_mode='Markdown', reply_markup=get_mainkbd())
+            msg = 'Никнейм: *{}.*\nSteamID32: *{}*.\nSteamIDv3: *{}*.\nVAC-статус: *{}*.\nИгровые баны: *{}*.\nСтатус ' \
+                  'торговли: *{}.*\nБесплатный аккаунт: *{}*.\nСсылка на профиль: [{}]({}).\n\nПроверка на сайте ' \
+                  'тф.су: *{}*.\nПроверка на SteamRep: *{}*.'.format(chk.Nickname, chk.SteamID32, chk.SteamIDv3,
+                                                                     chk.get_vacstatus(), chk.get_gamebanstatus(),
+                                                                     chk.get_tradestatus(), chk.get_f2pstatus(),
+                                                                     chk.SteamID64, chk.Permalink,
+                                                                     chk.get_sitestatus(), chk.SRStatus)
+            bot.send_message(message.chat.id, msg, reply_to_message_id=message.message_id, parse_mode='Markdown',
+                             reply_markup=get_mainkbd())
         except:
-            bot.reply_to(message, 'An error occured while fetching API!')
+            bot.reply_to(message, 'Произошла ошибка при работе со Steam Web API! Повторите попытку позднее.')
 
     # Run bot forever...
     bot.polling(none_stop=True)
@@ -56,12 +59,12 @@ def runbot(key):
 
 def main():
     try:
-        print('Launching bot with token %s...' % tgkey)
+        print('Запуск бота...')
         runbot(tgkey)
 
-    except:
+    except Exception as ex:
         # Exception detected...
-        print('An error occurred while running bot!')
+        print('Произошло исключение во время работы бота.\n\nТекст исключения: %s' % ex)
 
 
 if __name__ == '__main__':
