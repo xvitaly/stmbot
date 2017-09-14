@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 # coding=utf-8
 
-from telebot import TeleBot, types
+from platform import system, release
 from settings import tgkey, tfkey
 from stchk import SteamChecker
-from platform import system, release
+from telebot import TeleBot, types
 
 
 def runbot(key):
