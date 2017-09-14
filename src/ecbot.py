@@ -59,8 +59,9 @@ def runbot(key):
 
 def main():
     try:
-        print('Запуск бота...')
+        print('Бот запущен.')
         runbot(tgkey)
+        print('Бот завершил работу.')
 
     except Exception as ex:
         # Exception detected...
