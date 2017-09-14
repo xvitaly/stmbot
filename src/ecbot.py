@@ -4,6 +4,7 @@
 from telebot import TeleBot, types
 from settings import tgkey, tfkey
 from stchk import SteamChecker
+from platform import system, release
 
 
 def runbot(key):
@@ -16,6 +17,11 @@ def runbot(key):
         # Sending message...
         bot.send_message(message.chat.id, 'Я - робот, созданный EasyCoding Team. Для продолжения работы со мной '
                                           'сначала выберите один из пунктов меню.', reply_markup=get_mainkbd())
+
+    @bot.message_handler(commands=['version'])
+    def handle_start(message):
+        bot.send_message(message.chat.id, 'EasyCoding Robot версии %s.\nРаботает на %s %s.' %
+                         ('0.1pre', system(), release()), reply_markup=get_mainkbd())
 
     @bot.message_handler(commands=['steam'])
     def handle_steam(message):
