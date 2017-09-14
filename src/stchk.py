@@ -3,6 +3,7 @@
 
 from urllib.request import Request, urlopen
 from xml.dom import minidom
+from re import sub
 
 
 class SteamChecker:
@@ -81,7 +82,7 @@ class SteamChecker:
         self.Premium = xmlp.getElementsByTagName("ispremium")[0].firstChild.data
         self.Permalink = xmlp.getElementsByTagName("permalink")[0].firstChild.data
         self.GameBans = xmlp.getElementsByTagName("gamebans")[0].firstChild.data
-        self.SRStatus = xmlp.getElementsByTagName("steamrep")[0].firstChild.data
+        self.SRStatus = sub('<[^<]+?>', '', xmlp.getElementsByTagName("steamrep")[0].firstChild.data)
 
         # Fetching custom description...
         try:
