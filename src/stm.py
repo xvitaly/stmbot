@@ -5,4 +5,5 @@ from stmbot import STMBot
 from settings import tgkey, tfkey
 
 if __name__ == '__main__':
+    print('Starting bot...')
     STMBot(tgkey, tfkey).runbot()
