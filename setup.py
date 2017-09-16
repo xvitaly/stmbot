@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
     name='stmbot',
     version='0.1',
-    packages=[''],
+    packages=['stmbot'],
     url='https://github.com/xvitaly/stmbot',
     license='GPLv3',
     author='Vitaly Zaitsev',
