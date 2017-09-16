@@ -25,6 +25,7 @@ setup(
     packages=['stmbot'],
     url='https://github.com/xvitaly/stmbot',
     license='GPLv3',
+    install_requires=['pytelegrambotapi'],
     author='Vitaly Zaitsev',
     author_email='vitaly@easycoding.org',
     description='Simple Steam checker bot'
