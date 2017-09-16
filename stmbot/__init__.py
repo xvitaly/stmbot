@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from telebot import TeleBot
-from stmbot.stchk import SteamChecker
+from stmbot.checker import SteamChecker
 
 
 class STMBot:
