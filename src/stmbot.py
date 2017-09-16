@@ -10,7 +10,7 @@ class STMBot:
         # Handle /start and /help commands...
         @self.bot.message_handler(commands=['start', 'help'])
         def handle_start(message):
-            self.bot.send_message(message.chat.id, self.__msgs['stm_welcome'])
+            self.bot.send_message(message.chat.id, self.__msgs['stm_welcome'], parse_mode='Markdown', disable_web_page_preview=True)
 
         # Handle all other user input...
         @self.bot.message_handler(func=lambda m: True, content_types=['text'])
@@ -31,7 +31,7 @@ class STMBot:
         self.bot = TeleBot(tgkey)
         self.__tfkey = tfkey
         self.__msgs = {
-            'stm_welcome': 'Приветствую вас! Я специальный робот для проверки Steam профилей, созданный EasyCoding Team. Отправьте мне ссылку на любой профиль Steam, который вы желаете проверить, либо SteamID в любом формате записи и через несколько секунд получите результат.',
+            'stm_welcome': 'Приветствую вас! Я специальный робот для проверки Steam профилей, созданный [EasyCoding Team](https://www.easycoding.org/). Отправьте мне ссылку на любой профиль Steam, который вы желаете проверить, либо SteamID в любом формате записи и через несколько секунд получите результат.\n\nЗначок бота создан [Pfuispinne](https://pfuispinne.deviantart.com/) и лицензирован для некоммерческого применения.',
             'stm_result': 'Никнейм: *%s.*\nSteamID32: *%s*.\nSteamIDv3: *%s*.\nVAC-статус: *%s*.\nИгровые баны: *%s*.\nСтатус торговли: *%s.*\nБесплатный аккаунт: *%s*.\nСсылка на профиль: [%s](%s).\n\nПроверка на сайте тф.су: *%s*.\nПроверка на SteamRep: *%s*.',
             'stm_error': 'Не удалось обработать ваш запрос! Повторите попытку позднее.'
         }
