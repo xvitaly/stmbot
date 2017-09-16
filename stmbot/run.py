@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from stmbot import STMBot
-from settings import tgkey, tfkey
+from stmbot.settings import tgkey, tfkey
 
 if __name__ == '__main__':
     print('Starting bot...')
