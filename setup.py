@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 # coding=utf-8
 
-from distutils.core import setup
-
 # Simple Steam profile checker Telegram bot
 # Copyright (c) 2017 EasyCoding Team
 #
@@ -18,6 +16,8 @@ from distutils.core import setup
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+from distutils.core import setup
 
 setup(
     name='stmbot',
