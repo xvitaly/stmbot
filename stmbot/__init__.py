@@ -31,7 +31,7 @@ class STMBot:
         # Handle /legal command...
         @self.bot.message_handler(commands=['legal'])
         def handle_start(message):
-            self.bot.send_message(message.chat.id, self.__msgs['stm_legal'])
+            self.bot.send_message(message.chat.id, self.__msgs['stm_legal'], parse_mode='Markdown', disable_web_page_preview=True)
 
         # Handle all other user input...
         @self.bot.message_handler(func=lambda m: True, content_types=['text'])
