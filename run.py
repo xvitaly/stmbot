@@ -24,6 +24,7 @@ from stmbot.settings import tgkey, tfkey
 def main():
     print('Starting bot...')
     STMBot(tgkey, tfkey).runbot()
+    print('Shutting down...')
 
 
 if __name__ == '__main__':
