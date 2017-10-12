@@ -20,6 +20,11 @@
 from stmbot import STMBot
 from stmbot.settings import tgkey, tfkey
 
-if __name__ == '__main__':
+
+def main():
     print('Starting bot...')
     STMBot(tgkey, tfkey).runbot()
+
+
+if __name__ == '__main__':
+    main()
