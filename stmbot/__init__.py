@@ -18,7 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from telebot import TeleBot
-from stmbot.checker import SteamChecker
+from .checker import SteamChecker
 
 
 class STMBot:
