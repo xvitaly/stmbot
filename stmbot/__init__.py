@@ -19,6 +19,7 @@
 
 from telebot import TeleBot
 from .checker import SteamChecker
+from .settings import tgkey, tfkey
 
 
 class STMBot:
@@ -48,7 +49,7 @@ class STMBot:
         # Run bot forever...
         self.bot.polling(none_stop=True)
 
-    def __init__(self, tgkey, tfkey):
+    def __init__(self):
         self.bot = TeleBot(tgkey)
         self.__tfkey = tfkey
         self.__msgs = {

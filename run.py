@@ -18,12 +18,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from stmbot import STMBot
-from stmbot.settings import tgkey, tfkey
 
 
 def main():
     print('Starting bot...')
-    STMBot(tgkey, tfkey).runbot()
+    STMBot().runbot()
     print('Shutting down...')
 
 
