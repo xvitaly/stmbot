@@ -72,7 +72,7 @@ class SteamChecker:
         return stv[self.__tradestatus]
 
     @property
-    def get_gamebanstatus(self):
+    def gamebanstatus(self):
         return 'нет' if self.__gamebans == '0' else 'есть (%s)' % self.__gamebans
 
     def __init__(self, tid, token):
