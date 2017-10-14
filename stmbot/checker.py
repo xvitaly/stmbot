@@ -17,15 +17,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from urllib.request import Request, urlopen
+from urllib.request import Request as request, urlopen
 from xml.dom import minidom
 from re import sub
 
 
 class SteamChecker:
     def __fetchxml(self):
-        apiuri = 'https://check.team-fortress.su/api.php?action=check&token=%s&id=%s' % (self.__Token, self.__ID)
-        req = Request(apiuri, data=None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; rv:52.0.0) Gecko/20100101 Firefox/52.0.0'})
+        apiuri = 'https://check.team-fortress.su/api.php?action=check&token=%s&id=%s' % (self.__token, self.__id)
+        req = request(apiuri, data=None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; rv:52.0.0)'
+                                                                'Gecko/20100101 Firefox/52.0.0'})
         with urlopen(req) as xmlres:
             return xmlres.read().decode('utf-8')
 
@@ -102,8 +103,8 @@ class SteamChecker:
         :param token: API token
         """
         # Setting token and unique identifier to pseudo-private properties...
-        self.__ID = tid
-        self.__Token = token
+        self.__id = tid
+        self.__token = token
 
         # Fetching XML from API...
         rxml = self.__fetchxml()
