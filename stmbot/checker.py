@@ -62,13 +62,14 @@ class SteamChecker:
         }
         return stv[self.__f2pstatus]
 
-    def get_tradestatus(self):
+    @property
+    def tradestatus(self):
         stv = {
             '0': 'нет ограничений',
             '1': 'заблокирована',
             '2': 'испытательный срок'
         }
-        return stv[self.TradeStatus]
+        return stv[self.__tradestatus]
 
     def get_gamebanstatus(self):
         return 'нет' if self.GameBans == '0' else 'есть (%s)' % self.GameBans
