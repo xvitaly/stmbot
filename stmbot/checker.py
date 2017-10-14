@@ -29,7 +29,8 @@ class SteamChecker:
         with urlopen(req) as xmlres:
             return xmlres.read().decode('utf-8')
 
-    def get_sitestatus(self):
+    @property
+    def sitestatus(self):
         # Set dictionary with API return codes...
         stv = {
             '1': 'гарант',
@@ -43,7 +44,7 @@ class SteamChecker:
         }
 
         # Return result using dictionary...
-        return stv[self.SiteStatus]
+        return stv[self.__sitestatus]
 
     def get_vacstatus(self):
         stv = {
@@ -91,14 +92,14 @@ class SteamChecker:
         self.SteamIDv3 = xmlp.getElementsByTagName('steamIDv3')[0].firstChild.data
         self.Nickname = xmlp.getElementsByTagName('nickname')[0].firstChild.data
         self.Avatar = xmlp.getElementsByTagName('avatar')[0].firstChild.data
-        self.SiteStatus = xmlp.getElementsByTagName('sitestatus')[0].firstChild.data
-        self.VACStatus = xmlp.getElementsByTagName('isbanned')[0].firstChild.data
-        self.F2PStatus = xmlp.getElementsByTagName('isf2p')[0].firstChild.data
-        self.TradeStatus = xmlp.getElementsByTagName('istrbanned')[0].firstChild.data
-        self.Premium = xmlp.getElementsByTagName('ispremium')[0].firstChild.data
         self.Permalink = xmlp.getElementsByTagName('permalink')[0].firstChild.data
-        self.GameBans = xmlp.getElementsByTagName('gamebans')[0].firstChild.data
         self.SRStatus = sub('<[^<]+?>', '', xmlp.getElementsByTagName('steamrep')[0].firstChild.data)
+        self.__sitestatus = xmlp.getElementsByTagName('sitestatus')[0].firstChild.data
+        self.__vacstatus = xmlp.getElementsByTagName('isbanned')[0].firstChild.data
+        self.__f2pstatus = xmlp.getElementsByTagName('isf2p')[0].firstChild.data
+        self.__tradestatus = xmlp.getElementsByTagName('istrbanned')[0].firstChild.data
+        self.__premium = xmlp.getElementsByTagName('ispremium')[0].firstChild.data
+        self.__gameBans = xmlp.getElementsByTagName('gamebans')[0].firstChild.data
 
         # Fetching custom description...
         try:
