@@ -24,6 +24,10 @@ from re import sub
 
 class SteamChecker:
     def __fetchxml(self):
+        """
+        Format query to API, fetch results and return them as string.
+        :return: API check results
+        """
         apiuri = 'https://check.team-fortress.su/api.php?action=check&token=%s&id=%s' % (self.__token, self.__id)
         req = request(apiuri, data=None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; rv:52.0.0)'
                                                                 'Gecko/20100101 Firefox/52.0.0'})
