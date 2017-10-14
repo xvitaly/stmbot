@@ -54,12 +54,13 @@ class SteamChecker:
         }
         return stv[self.__vacstatus]
 
-    def get_f2pstatus(self):
+    @property
+    def f2pstatus(self):
         stv = {
             '0': 'нет',
             '1': 'да'
         }
-        return stv[self.F2PStatus]
+        return stv[self.__f2pstatus]
 
     def get_tradestatus(self):
         stv = {
