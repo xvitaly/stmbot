@@ -39,9 +39,9 @@ class STMBot:
         def handle_msg(message):
             try:
                 chk = SteamChecker(message.text, self.__tfkey)
-                msg = self.__msgs['stm_result'] % (chk.Nickname, chk.SteamID32, chk.SteamIDv3, chk.get_vacstatus(),
-                                                   chk.get_gamebanstatus(), chk.get_tradestatus(), chk.get_f2pstatus(),
-                                                   chk.SteamID64, chk.Permalink, chk.get_sitestatus(), chk.SRStatus)
+                msg = self.__msgs['stm_result'] % (chk.nickname, chk.steamid32, chk.steamidv3, chk.vacstatus,
+                                                   chk.get_gamebanstatus(), chk.tradestatus, chk.f2pstatus,
+                                                   chk.steamid64, chk.permalink, chk.sitestatus, chk.srstatus)
                 self.bot.send_message(message.chat.id, msg, reply_to_message_id=message.message_id, parse_mode='Markdown')
             except:
                 self.bot.reply_to(message, self.__msgs['stm_error'])
