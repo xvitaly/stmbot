@@ -90,14 +90,16 @@ class SteamChecker:
         if xmlp.getElementsByTagName('qstatus')[0].firstChild.data != 'OK':
             raise Exception('Incorrect API return code')
 
-        # Setting public properties...
-        self.SteamID32 = xmlp.getElementsByTagName('steamID')[0].firstChild.data
-        self.SteamID64 = xmlp.getElementsByTagName('steamID64')[0].firstChild.data
-        self.SteamIDv3 = xmlp.getElementsByTagName('steamIDv3')[0].firstChild.data
-        self.Nickname = xmlp.getElementsByTagName('nickname')[0].firstChild.data
-        self.Avatar = xmlp.getElementsByTagName('avatar')[0].firstChild.data
-        self.Permalink = xmlp.getElementsByTagName('permalink')[0].firstChild.data
-        self.SRStatus = sub('<[^<]+?>', '', xmlp.getElementsByTagName('steamrep')[0].firstChild.data)
+        # Setting public fields...
+        self.steamid32 = xmlp.getElementsByTagName('steamID')[0].firstChild.data
+        self.steamid64 = xmlp.getElementsByTagName('steamID64')[0].firstChild.data
+        self.steamidv3 = xmlp.getElementsByTagName('steamIDv3')[0].firstChild.data
+        self.nickname = xmlp.getElementsByTagName('nickname')[0].firstChild.data
+        self.avatar = xmlp.getElementsByTagName('avatar')[0].firstChild.data
+        self.permalink = xmlp.getElementsByTagName('permalink')[0].firstChild.data
+        self.srstatus = sub('<[^<]+?>', '', xmlp.getElementsByTagName('steamrep')[0].firstChild.data)
+
+        # Setting private fields...
         self.__sitestatus = xmlp.getElementsByTagName('sitestatus')[0].firstChild.data
         self.__vacstatus = xmlp.getElementsByTagName('isbanned')[0].firstChild.data
         self.__f2pstatus = xmlp.getElementsByTagName('isf2p')[0].firstChild.data
@@ -107,7 +109,6 @@ class SteamChecker:
 
         # Fetching custom description...
         try:
-            self.Description = xmlp.getElementsByTagName('customdescr')[0].firstChild.data
+            self.description = xmlp.getElementsByTagName('customdescr')[0].firstChild.data
         except:
-            self.Description = ''
-
+            self.description = ''
