@@ -46,12 +46,13 @@ class SteamChecker:
         # Return result using dictionary...
         return stv[self.__sitestatus]
 
-    def get_vacstatus(self):
+    @property
+    def vacstatus(self):
         stv = {
             '0': 'чист',
             '1': 'забанен'
         }
-        return stv[self.VACStatus]
+        return stv[self.__vacstatus]
 
     def get_f2pstatus(self):
         stv = {
