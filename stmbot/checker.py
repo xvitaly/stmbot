@@ -31,6 +31,10 @@ class SteamChecker:
 
     @property
     def sitestatus(self):
+        """
+        TEAM-FORTRESS.SU user friendly status of checked user profile.
+        :return: TEAM-FORTRESS.SU check results
+        """
         # Set dictionary with API return codes...
         stv = {
             '1': 'гарант',
@@ -48,6 +52,10 @@ class SteamChecker:
 
     @property
     def vacstatus(self):
+        """
+        VAC status of checked user profile.
+        :return: VAC status
+        """
         stv = {
             '0': 'чист',
             '1': 'забанен'
@@ -56,6 +64,10 @@ class SteamChecker:
 
     @property
     def f2pstatus(self):
+        """
+        Free-to-Play status (has no purchased games) of checked user profile.
+        :return: Free-to-Play status
+        """
         stv = {
             '0': 'нет',
             '1': 'да'
@@ -64,6 +76,10 @@ class SteamChecker:
 
     @property
     def tradestatus(self):
+        """
+        Current trade status of checked user profile.
+        :return: Trade status
+        """
         stv = {
             '0': 'нет ограничений',
             '1': 'заблокирована',
@@ -73,9 +89,18 @@ class SteamChecker:
 
     @property
     def gamebanstatus(self):
+        """
+        Current game bans on checked user profile.
+        :return: Game bans status and their count
+        """
         return 'нет' if self.__gamebans == '0' else 'есть (%s)' % self.__gamebans
 
     def __init__(self, tid, token):
+        """
+        Main SteamChecker constructor.
+        :param tid: Profile link, username or SteamID
+        :param token: API token
+        """
         # Setting token and unique identifier to pseudo-private properties...
         self.__ID = tid
         self.__Token = token
