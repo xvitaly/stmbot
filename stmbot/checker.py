@@ -71,8 +71,9 @@ class SteamChecker:
         }
         return stv[self.__tradestatus]
 
+    @property
     def get_gamebanstatus(self):
-        return 'нет' if self.GameBans == '0' else 'есть (%s)' % self.GameBans
+        return 'нет' if self.__gamebans == '0' else 'есть (%s)' % self.__gamebans
 
     def __init__(self, tid, token):
         # Setting token and unique identifier to pseudo-private properties...
@@ -102,7 +103,7 @@ class SteamChecker:
         self.__f2pstatus = xmlp.getElementsByTagName('isf2p')[0].firstChild.data
         self.__tradestatus = xmlp.getElementsByTagName('istrbanned')[0].firstChild.data
         self.__premium = xmlp.getElementsByTagName('ispremium')[0].firstChild.data
-        self.__gameBans = xmlp.getElementsByTagName('gamebans')[0].firstChild.data
+        self.__gamebans = xmlp.getElementsByTagName('gamebans')[0].firstChild.data
 
         # Fetching custom description...
         try:
