@@ -148,6 +148,6 @@ class SteamChecker:
 
         # Fetching custom description...
         try:
-            self.description = xmlp.getElementsByTagName('customdescr')[0].firstChild.data
+            self.description = self.striptags(xmlp.getElementsByTagName('customdescr')[0].firstChild.data)
         except:
             self.description = 'отсутствует'
