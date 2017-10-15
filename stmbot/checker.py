@@ -17,10 +17,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from html import unescape
+from re import sub
 from urllib.request import Request as request, urlopen
 from xml.dom import minidom
-from re import sub
-from html import unescape
 
 
 class SteamChecker:
