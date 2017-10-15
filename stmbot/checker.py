@@ -112,7 +112,7 @@ class SteamChecker:
 
     @property
     def description(self):
-        return '*отсутствует.*' if self.__description else '`%s`' % self.striptags(self.__description)
+        return '`%s`' % self.striptags(self.__description) if self.__description else '*отсутствует.*'
 
     def __init__(self, tid, token):
         """
