@@ -23,6 +23,10 @@ from re import sub
 
 
 class SteamChecker:
+    @staticmethod
+    def striptags(str):
+        return sub('<[^<]+?>', '', str)
+
     def __fetchxml(self):
         """
         Format query to API, fetch results and return them as string.
@@ -127,7 +131,7 @@ class SteamChecker:
         self.nickname = xmlp.getElementsByTagName('nickname')[0].firstChild.data
         self.avatar = xmlp.getElementsByTagName('avatar')[0].firstChild.data
         self.permalink = xmlp.getElementsByTagName('permalink')[0].firstChild.data
-        self.srstatus = sub('<[^<]+?>', '', xmlp.getElementsByTagName('steamrep')[0].firstChild.data)
+        self.srstatus = self.striptags(xmlp.getElementsByTagName('steamrep')[0].firstChild.data)
 
         # Setting private fields...
         self.__sitestatus = xmlp.getElementsByTagName('sitestatus')[0].firstChild.data
