@@ -25,13 +25,13 @@ from xml.dom import minidom
 
 class SteamChecker:
     @staticmethod
-    def striptags(str):
+    def striptags(gtstr):
         """
         Strip HTML tags from string.
-        :param str: String to strip tags
+        :param gtstr: String to strip tags
         :return: String without HTML tags
         """
-        return sub('<[^<]+?>', '', unescape(str))
+        return sub('<[^<]+?>', '', unescape(gtstr))
 
     def __fetchxml(self):
         """
