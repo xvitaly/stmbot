@@ -156,7 +156,5 @@ class SteamChecker:
         self.__gamebans = xmlp.getElementsByTagName('gamebans')[0].firstChild.data
 
         # Fetching custom description...
-        try:
-            self.__description = xmlp.getElementsByTagName('customdescr')[0].firstChild.data
-        except:
-            self.__description = ''
+        dcs = xmlp.getElementsByTagName('customdescr')[0].firstChild
+        self.__description = dcs.data if dcs else ''
