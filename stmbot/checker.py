@@ -141,4 +141,4 @@ class SteamChecker:
         try:
             self.description = xmlp.getElementsByTagName('customdescr')[0].firstChild.data
         except:
-            self.description = ''
+            self.description = 'отсутствует'
