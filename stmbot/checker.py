@@ -20,6 +20,7 @@
 from urllib.request import Request as request, urlopen
 from xml.dom import minidom
 from re import sub
+from html import unescape
 
 
 class SteamChecker:
@@ -30,7 +31,7 @@ class SteamChecker:
         :param str: String to strip tags
         :return: String without HTML tags
         """
-        return sub('<[^<]+?>', '', str)
+        return sub('<[^<]+?>', '', unescape(str))
 
     def __fetchxml(self):
         """
@@ -148,6 +149,6 @@ class SteamChecker:
 
         # Fetching custom description...
         try:
-            self.description = self.striptags(xmlp.getElementsByTagName('customdescr')[0].firstChild.data)
+            self.description = '`%s`' % self.striptags(xmlp.getElementsByTagName('customdescr')[0].firstChild.data)
         except:
-            self.description = 'отсутствует'
+            self.description = '*отсутствует*.'
