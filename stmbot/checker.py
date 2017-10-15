@@ -25,6 +25,11 @@ from re import sub
 class SteamChecker:
     @staticmethod
     def striptags(str):
+        """
+        Strip HTML tags from string.
+        :param str: String to strip tags
+        :return: String without HTML tags
+        """
         return sub('<[^<]+?>', '', str)
 
     def __fetchxml(self):
