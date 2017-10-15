@@ -110,6 +110,10 @@ class SteamChecker:
         """
         return 'нет' if self.__gamebans == '0' else 'есть (%s)' % self.__gamebans
 
+    @property
+    def description(self):
+        return '*отсутствует.*' if self.__description else '`%s`' % self.striptags(self.__description)
+
     def __init__(self, tid, token):
         """
         Main SteamChecker constructor.
@@ -149,6 +153,6 @@ class SteamChecker:
 
         # Fetching custom description...
         try:
-            self.description = '`%s`' % self.striptags(xmlp.getElementsByTagName('customdescr')[0].firstChild.data)
+            self.__description = xmlp.getElementsByTagName('customdescr')[0].firstChild.data
         except:
-            self.description = '*отсутствует*.'
+            self.__description = ''
