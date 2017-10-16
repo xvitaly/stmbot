@@ -1,7 +1,7 @@
 %global appname stmbot
 
-%global appsum Steam Community bot for Telegram
-%global appdesc Simple Steam Community profile checker bot for Telegram by EasyCoding Team
+%global appsum Steam profile checker bot for Telegram
+%global appdesc Simple Steam profile checker bot for Telegram by EasyCoding Team
 
 Name: python-%{appname}
 Version: 0.1
