@@ -44,7 +44,7 @@ Summary: %{appsum}
 %{appdesc}.
 
 %prep
-%autosetup -n %{appname}-%{version}
+%autosetup -n %{appname}-%{version} -p1
 
 %build
 %py2_build
