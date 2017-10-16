@@ -11,6 +11,7 @@ Summary: %{appsum}
 License: GPLv3+
 URL: https://github.com/xvitaly/%{name}
 Source0: %{url}/archive/%{version}.tar.gz#/%{appname}-%{version}.tar.gz
+Patch0: %{appname}-api-keys.patch
 BuildArch: noarch
 
 BuildRequires: python2-devel
