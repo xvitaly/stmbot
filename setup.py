@@ -17,14 +17,22 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='stmbot',
     version='0.1',
     packages=['stmbot'],
+    package_dir={
+        'stmbot': 'stmbot',
+    },
     url='https://github.com/xvitaly/stmbot',
     license='GPLv3',
+    entry_points={
+        'console_scripts': [
+            'stmbot = stmbot:main',
+        ],
+    },
     install_requires=['pytelegrambotapi'],
     author='Vitaly Zaitsev',
     author_email='vitaly@easycoding.org',
