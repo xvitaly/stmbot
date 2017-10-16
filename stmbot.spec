@@ -69,4 +69,5 @@ Summary: %{appsum}
 %{python3_sitelib}/*
 
 %changelog
-
+* Mon Oct 16 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 0.1-1
+- Initial SPEC release.
