@@ -17,12 +17,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='stmbot',
     version='0.1',
-    packages=['stmbot'],
+    packages=find_packages(),
     package_dir={
         'stmbot': 'stmbot',
     },
@@ -30,7 +30,7 @@ setup(
     license='GPLv3',
     entry_points={
         'console_scripts': [
-            'stmbot = stmbot:main',
+            'stmbot = stmbot.scripts.runbot:main',
         ],
     },
     install_requires=['pytelegrambotapi'],
