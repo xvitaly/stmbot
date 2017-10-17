@@ -9,7 +9,7 @@ Release: 1%{?dist}
 Summary: %{appsum}
 
 License: GPLv3+
-URL: https://github.com/xvitaly/%{name}
+URL: https://github.com/xvitaly/%{appname}
 Source0: %{url}/archive/v%{version}.tar.gz#/%{appname}-%{version}.tar.gz
 Patch0: %{appname}-api-keys.patch
 BuildArch: noarch
