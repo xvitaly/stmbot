@@ -44,7 +44,7 @@ You can also install bot:
  cd stmbot
  sudo /usr/bin/python3 setup.py install
  ```
- 4. Install bot using Python 3:
+ 4. Install bot using Python 2.7:
  ```
  cd stmbot
  sudo /usr/bin/python2 setup.py install
