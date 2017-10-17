@@ -117,7 +117,7 @@ class SteamChecker:
         Formatted custom description of checked user profile.
         :return: Custom description with markup
         """
-        return '`%s`' % self.striptags(self.__description) if self.__description else '*отсутствует.*'
+        return '`%s`' % self.striptags(self.__description, ' ') if self.__description else '*отсутствует.*'
 
     def __init__(self, tid, token):
         """
