@@ -16,6 +16,7 @@ BuildArch: noarch
 
 BuildRequires: python2-devel
 BuildRequires: python3-devel
+BuildRequires: systemd
 
 BuildRequires: python2dist(pytelegrambotapi)
 BuildRequires: python3dist(pytelegrambotapi)
