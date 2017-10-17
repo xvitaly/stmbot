@@ -53,10 +53,20 @@ Summary: %{appsum}
 %install
 %py2_install
 %py3_install
+install -p -D -m 0644 %{appname}.service %{buildroot}%{_unitdir}/%{appname}.service
 
 %check
 %{__python2} setup.py test
 %{__python3} setup.py test
+
+%post
+%systemd_post %{appname}.service
+
+%preun
+%systemd_preun %{appname}.service
+
+%postun
+%systemd_postun_with_restart %{appname}.service
 
 %files -n python2-%{appname}
 %license LICENSE
@@ -67,6 +77,7 @@ Summary: %{appsum}
 %license LICENSE
 %doc README.md
 %{_bindir}/%{appname}
+%{_unitdir}/%{appname}.service
 %{python3_sitelib}/*
 
 %changelog

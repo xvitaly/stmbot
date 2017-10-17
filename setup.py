@@ -36,5 +36,5 @@ setup(
     install_requires=['pytelegrambotapi'],
     author='Vitaly Zaitsev',
     author_email='vitaly@easycoding.org',
-    description='Simple Steam checker bot'
+    description='Simple Steam profile checker bot'
 )
