@@ -95,3 +95,31 @@ You can also install bot:
  sudo dnf install /var/lib/mock/*/result/python3-stmbot*.noarch.rpm --exclude="*debug*"
  ```
  8. Remove temporary files from `~/rpmbuild`, `/var/cache/mock`, `/var/lib/mock` directories.
+
+# Systemd service
+If bot was installed from RPM package, it can be controlled by systemd.
+
+Start bot:
+```
+sudo systemctl start stmbot.service
+```
+
+Stop bot:
+```
+sudo systemctl stop stmbot.service
+```
+
+Restart bot:
+```
+sudo systemctl restart stmbot.service
+```
+
+Enable bot autostart on system boot:
+```
+sudo systemctl enable stmbot.service
+```
+
+Disable bot autostart on system boot:
+```
+sudo systemctl disable stmbot.service
+```
