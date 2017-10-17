@@ -1,5 +1,5 @@
 # About
-Steam profile checker bot for Telegram messenger checks Steam community profiles including VAC, trade, etc. statuses.
+Simple Steam profile checker bot for [Telegram messenger](https://telegram.org/) checks [Steam community](http://steamcommunity.com/) profiles including VAC, trade, etc. statuses.
 
 This bot can also check users via third-party services:
  * [TEAM-FORTRESS.SU](https://check.team-fortress.su/) anti-scam service;
