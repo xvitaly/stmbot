@@ -7,7 +7,7 @@ Type=simple
 Restart=always
 RestartSec=30
 User=nobody
-Group=nogroup
+Group=nobody
 ExecStart=/usr/bin/stmbot
 
 [Install]
