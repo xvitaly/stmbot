@@ -68,13 +68,13 @@ install -p -D -m 0644 %{appname}.service %{buildroot}%{_unitdir}/%{appname}.serv
 %{__python2} setup.py test
 %{__python3} setup.py test
 
-%post
+%post -n python3-%{appname}
 %systemd_post %{appname}.service
 
-%preun
+%preun -n python3-%{appname}
 %systemd_preun %{appname}.service
 
-%postun
+%postun -n python3-%{appname}
 %systemd_postun_with_restart %{appname}.service
 
 %files -n python2-%{appname}
