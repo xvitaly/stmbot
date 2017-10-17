@@ -6,6 +6,7 @@ After=network.target
 Type=simple
 Restart=always
 RestartSec=30
+User=nobody
 ExecStart=/usr/bin/stmbot
 
 [Install]
