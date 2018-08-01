@@ -19,5 +19,5 @@
 
 APIKeys = {
     'tgkey': '',
-    'tfkey': ''
+    'tfkey': '2f74811300c361e53b430611a7d1769f'
 }
